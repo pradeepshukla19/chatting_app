@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Real-Time Chat</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="auth" class="auth">
+        <div class="card">
+            <h2>Real-Time Chat</h2>
+            <input id="username" placeholder="Username" autocomplete="username" />
+            <input id="password" type="password" placeholder="Password (min 6)" autocomplete="current-password" />
+            <div class="row">
+                <button id="loginBtn">Login</button>
+                <button id="registerBtn" class="secondary">Register</button>
+            </div>
+            <p id="authError" class="error"></p>
+        </div>
+    </div>
+
+    <div id="app" class="app hidden">
+        <aside id="sidebar">
+            <div class="me"><span id="meName"></span><button id="logoutBtn" class="secondary small">Logout</button>
+            </div>
+            <ul id="userList"></ul>
+        </aside>
+        <main>
+            <header id="chatHeader">
+                <button id="backBtn" class="secondary small">&larr;</button>
+                <span id="chatTitle">Select a user to start chatting</span>
+            </header>
+            <div id="messages"></div>
+            <form id="form" class="hidden">
+                <input id="input" placeholder="Type a message..." maxlength="1000" autocomplete="off" />
+                <button>Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
